@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long t,i,j,k,n;
+	cin>>t;
+	for(i=0;i<t;++i)
+	{
+	    cin>>n;
+	    long arr[n],brr[n],crr[n],a=0,b=0,sum=0,total;
+	    total=(n*(n+1))/2;
+	    for(j=0;j<n;++j)
+	    {
+	 
+	        brr[j]=0;
+	        crr[j]=0;
+	        cin>>arr[j];
+	    }
+	    for(j=0;j<n;++j)
+	    {
+	        if(arr[j]%2)
+	        a++;
+	        if(arr[j]%4==0)
+	        a=0;
+	        if(arr[j]%4==2||arr[j]%4==-2)
+	        {
+	            brr[j]=a;
+	            a=0;
+	        }
+	    }
+	    a=0;
+	     for(j=n-1;j>=0;--j)
+	    {
+	        
+	        if(arr[j]%2)
+	        a++;
+	        if(arr[j]%4==0)
+	        a=0;
+	        if(arr[j]%4==2||arr[j]%4==-2)
+	        {
+	            crr[j]=a;
+	            a=0;
+	        }
+	       
+	    }
+	    
+	    for(j=0;j<n;++j)
+	    {
+	        if(arr[j]%4==2||arr[j]%4==-2)
+	        sum+=(brr[j]+1)*(crr[j]+1);
+	    }
+	    cout<<total-sum<<"\n";
+	    
+	}
+	return 0;
+}
